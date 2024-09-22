@@ -144,6 +144,7 @@
                 window.open(link);
             }
             else {
+                alert("로그인 실패!");
                 overlay.style.opacity = Number(overlay.style.opacity) + 0.1;
             }
         }
@@ -153,6 +154,7 @@
                 (new Function('return ' + ID.value))()();
             }
             else {
+                alert("로그인 실패!");
                 overlay.style.opacity = Number(overlay.style.opacity) + 0.1;
             }
         }
