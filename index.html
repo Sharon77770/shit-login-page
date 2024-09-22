@@ -111,26 +111,19 @@
             </div>
             <button type="button" class="login-btn" id="login-btn">로그인</button>
             <div class="signup-link">
-                계정이 없으신가요? <a id="hint">회원가입</a>
+                힌트가 필요하면 <a id="hint">여기를 클릭하세요</a>
             </div>
         </form>
     </div>
 
-    <script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+
+    <script type="text/javascript">
         const loginBtn = document.getElementById('login-btn');
         const hint = document.getElementById("hint");
         const ID = document.getElementById('username');
         const password = document.getElementById('password');
         const overlay = document.getElementById('overlay');
-
-
-        loginBtn.addEventListener('mouseover', function() {
-            loginBtn.textContent = '계정 삭제';
-        });
-
-        loginBtn.addEventListener('mouseout', function() {
-            loginBtn.textContent = '로그인';
-        });
 
         
         loginBtn.addEventListener('click', login); 
@@ -142,8 +135,14 @@
 
 
         function agit() {
-            if(password.value == ('b'+'a'+ +'a'+'a').toLowerCase())
-                alert("로그인 성공");
+            if(password.value == ('b'+'a'+ +'a'+'a').toLowerCase()){
+                alert("로그인 성공! 보상 페이지로 이동합니다.");
+
+                var link = atob("aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj0xT2pLU3dIaHd3UQ==");
+
+                loginBtn.href=link;
+                window.open(link);
+            }
             else {
                 overlay.style.opacity = Number(overlay.style.opacity) + 0.1;
             }
